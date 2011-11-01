@@ -1,0 +1,5 @@
+This gem allows you to guard methods that have side effects with a callback that fires before the method is invoked.
+If the callback returns a "falsey" value, the method is halted and will not be called, and the result will be nil instead.
+if the method does not have side effects or you depend on its return value, you should NOT use this on that method!
+This will break the _hell_ out of design by contract. Currently does not work with methods that accept blocks so be aware of that.
+Fixes, improvements, pull requests, and general "why on earth did you do this" notes are encouraged.

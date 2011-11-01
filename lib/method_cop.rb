@@ -1,12 +1,4 @@
 module MethodCop
-  # Guard methods that have side effects with a callback that fires before the method is invoked.
-  # If the callback returns a "falsey" value, the method is halted and will not be called.
-  # The callback will return nil instead.
-  # if the method does not have side effects or you depend on its return value, you should NOT
-  # use this on that method! This will break the _hell_ out of design by contract.
-  # currently does not work with methods that accept blocks so be aware of that. Fixes, improvements,
-  # pull requests, and general "why on earth did you do this" notes are encouraged.
-  
   #TODO: DRY this up
   
   @@guards = {}
