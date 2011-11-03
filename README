@@ -10,24 +10,26 @@ methods that take blocks, allowing the guard_method method to take a block or la
 
 NOTES/HOWTOS:
 
-INSTALL:
-  gem install method_cop
-USE:
+  INSTALL:
 
-  require 'method_cop'
-
-  class Citizen
-    extend MethodCop
-    guard_method :something_illegal, :with => :allow_action?
+    gem install method_cop
   
-    def allow_action?
-      false
-    end
+  USE:
+
+    require 'method_cop'
+
+    class Citizen
+      extend MethodCop
+      guard_method :something_illegal, :with => :allow_action?
+  
+      def allow_action?
+        false
+      end
     
-    def something_illegal
-      "Murder"
+      def something_illegal
+        "Murder"
+      end
     end
-  end
   
-  Citizen.new.something_illegal
-  => nil
+    Citizen.new.something_illegal
+    => nil
