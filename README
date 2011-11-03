@@ -3,3 +3,31 @@ If the callback returns a "falsey" value, the method is halted and will not be c
 if the method does not have side effects or you depend on its return value, you should NOT use this on that method!
 This will break the _hell_ out of design by contract. Currently does not work with methods that accept blocks so be aware of that.
 Fixes, improvements, pull requests, and general "why on earth did you do this" notes are encouraged.
+
+Currently tested/developed on 1.8.7. If you're no longer working with a hammer and chisel (using 1.9.2) then this may or may not
+work for you, and there are definitely better ways to do this. Future development will include 1.9.2 support, support for
+methods that take blocks, allowing the guard_method method to take a block or lambda instead of just a symbol, and more.
+
+NOTES/HOWTOS:
+
+INSTALL:
+  gem install method_cop
+USE:
+
+  require 'method_cop'
+
+  class Citizen
+    extend MethodCop
+    guard_method :something_illegal, :with => :allow_action?
+  
+    def allow_action?
+      false
+    end
+    
+    def something_illegal
+      "Murder"
+    end
+  end
+  
+  Citizen.new.something_illegal
+  => nil
