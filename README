@@ -33,3 +33,11 @@ NOTES/HOWTOS:
   
     Citizen.new.something_illegal
     => nil
+    
+BUGS:
+
+  The ones I know of offhand are:
+  
+  -Doesn't play nice with methods that take blocks
+  -Ignores methods that were already defined when the guard_method call happened
+  
